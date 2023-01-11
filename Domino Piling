@@ -1,0 +1,15 @@
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+    int m , n;
+    cin>> m ;
+    cin >> n;
+    int p =n*m ;
+    int d = p/2 ;
+    cout << d << endl;
+    return 0;
+}
