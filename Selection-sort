@@ -1,0 +1,25 @@
+
+int select(int arr[], int i)
+{
+    int l =-1 , p =0 ;
+    for(int j=i;j>=0;j--){
+        if(l < arr[j]){
+          l =arr[j];
+          p = j;
+    }
+}
+ return p;
+    // code herint e such that selecionSort() sorts arr[]
+}
+
+
+void selectionSort(int arr[], int n)
+{
+    int i , j;
+    for (int i = n-1 ; i>=0 ;i--) {
+        int j =select(arr ,i);
+        swap (&arr[i], &arr[j]) ;
+        
+    }
+  //code here
+}
