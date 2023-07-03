@@ -1,0 +1,10 @@
+class Solution(object):
+    def frequencySort(self, s):
+        freq_dict = {}
+
+        for c in s:
+            freq_dict[c] = freq_dict.get(c, 0) + 1
+
+        sorted_chars = sorted(s, key=lambda x: -freq_dict[x])
+
+        return ''.join(sorted_chars)
