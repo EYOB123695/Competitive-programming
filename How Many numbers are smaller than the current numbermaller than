@@ -1,0 +1,12 @@
+class Solution(object):
+   def smallerNumbersThanCurrent(self, nums):
+        a = []
+
+        for num in nums:
+            count = 0
+            for c in nums:
+                if c < num:
+                    count += 1
+            a.append(count)
+
+        return a
