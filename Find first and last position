@@ -17,7 +17,7 @@ def binary_search(l,h,condition):
 def first_position(nums,target):
     def condition(mid):
         if nums[mid]== target:
-            if nums[mid] > 0 and nums[mid-1] == target:
+            if mid > 0 and nums[mid-1] == target:
                 return 'left'
             return 'found'
         elif nums[mid] < target :
@@ -30,7 +30,7 @@ def last_position(nums,target):
     def condition(mid):
         if nums[mid]==target:
 
-            if nums[mid] > len(nums)-1 and nums[mid+1]==target:
+            if mid < len(nums)-1 and nums[mid+1]==target:
                 return 'right'
             return 'found'
         elif nums[mid ] < target:
