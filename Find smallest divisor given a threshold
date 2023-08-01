@@ -1,0 +1,25 @@
+class Solution(object):
+    def smallestDivisor(self, nums, threshold):
+        """
+        :type nums: List[int]
+        :type threshold: int
+        :rtype: int
+        """
+        l=1
+        h=max(nums)
+        ans=h
+        while l <= h:
+            c= 0
+            mid=l + (h - l) // 2
+
+            for i in nums:
+                c += -(- i//mid)
+            if c <= threshold:
+                if mid <ans:
+                    ans=mid 
+                h = mid-1
+                               
+            else:
+                 l = mid+1
+        return ans 
+        
