@@ -1,0 +1,39 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def findMode(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        if not root:
+            return []
+        if not root.left and not root.right:
+            return [root.val]
+        
+       
+        def e(root):
+            
+            if root.val not in frequency:
+                frequency[root.val]=1
+            else:
+                frequency[root.val]+=1
+            if not root.left and not root.right:
+                return
+            if root.left:
+                e(root.left)
+            if root.right:
+                e(root.right)
+        frequency={}
+        e(root)
+        answer=[]
+        b=max(frequency.values())
+        for key,value in frequency.items():
+            if value==b:
+                answer.append(key)
+        return answer
+                
