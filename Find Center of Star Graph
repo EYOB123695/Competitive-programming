@@ -1,0 +1,23 @@
+class Solution(object):
+    def findCenter(self, edges):
+        """
+        :type edges: List[List[int]]
+        :rtype: int
+        """
+        dict={}
+        for e in edges:
+            u,v = e
+            if u in dict:
+                dict[u]+=1
+            else:
+                dict[u]=1
+            
+            if v in dict:
+                dict[v]+=1
+            else:
+                dict[v]=1
+
+        l=len(edges)
+        for node , count in dict.items():
+            if count == l:
+                return node
