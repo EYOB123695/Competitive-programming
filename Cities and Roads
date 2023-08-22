@@ -1,0 +1,11 @@
+n=int(input())
+adjmat=[]
+for _ in range(n):
+    row=list(map(int, input().split()))
+    adjmat.append(row)
+count=0
+for i in range(n):
+    for j in range(i+1,n):
+        if adjmat[i][j]==1 :
+            count+=1
+print(count)
