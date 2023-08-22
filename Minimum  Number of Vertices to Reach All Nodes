@@ -1,0 +1,15 @@
+class Solution(object):
+    def findSmallestSetOfVertices(self, n, edges):
+        """
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """
+        nodes=set(range(n))
+        start=set()
+        for e in edges:
+            
+            start.add(e[1])
+        
+        answer = nodes-start
+        return answer
