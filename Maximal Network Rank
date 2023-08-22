@@ -1,0 +1,22 @@
+class Solution(object):
+    def maximalNetworkRank(self, n, roads):
+        """
+        :type n: int
+        :type roads: List[List[int]]
+        :rtype: int
+        """
+        dict={}
+        for a,b in roads:
+            dict.setdefault(a,0)
+            dict.setdefault(b,0)
+            dict[a]+=1
+            dict[b]+=1
+        answer=0
+        for i in range(n):
+            for j in range(i+1,n):
+                result=dict.get(i,0)+dict.get(j,0)
+                if [i,j] in roads or [j,i] in roads:
+                    result-=1
+                answer=max(answer,result)
+        return answer
+
