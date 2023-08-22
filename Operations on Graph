@@ -1,0 +1,20 @@
+class Graph():
+    def __init__(self,n):
+        self.adjlist=[]
+        for _ in range(n+1):
+           self.adjlist.append([])
+    def addedge(self,u,v):
+        self.adjlist[u].append(v)
+        self.adjlist[v].append(u)
+    def ver(self,u):
+        print(*self.adjlist[u])
+
+n=int(input())
+o=int(input())
+e=Graph(n)
+for i in range(o):
+    op=list(map(int, input().split()))
+    if op[0] == 1:
+        e.addedge(op[1],op[2])
+    if op[0]== 2 :
+        e.ver(op[1])     
