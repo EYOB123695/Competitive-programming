@@ -1,0 +1,19 @@
+n = int(input())
+adjmat = []
+for _ in range(n):
+    row = list(map(int, input().split()))
+    adjmat.append(row)
+sources = []
+sinks = []
+
+for i in range(n):
+    in_deg = sum(adjmat[j][i] for j in range(n))
+    out_deg = sum(adjmat[i][j] for j in range(n))
+
+    if in_deg == 0:
+        sources.append(i + 1)
+    if out_deg == 0:
+        sinks.append(i + 1)
+
+print(len(sources), *sources)
+print(len(sinks), *sinks)
