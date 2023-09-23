@@ -1,0 +1,19 @@
+class Solution(object):
+    def combine(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
+        res=[]
+        def backtracking(initial,co):
+            if len(co) == k:
+                c = co[:]
+                res.append(c)
+                return 
+            for i in range (initial, n+1):
+                co.append(i)
+                backtracking(i+1,co)
+                co.pop()
+        backtracking(1,[])
+        return res
