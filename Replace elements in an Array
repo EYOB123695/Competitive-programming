@@ -1,0 +1,18 @@
+class Solution(object):
+    def arrayChange(self, nums, operations):
+        """
+        :type nums: List[int]
+        :type operations: List[List[int]]
+        :rtype: List[int]
+        """
+        dictionary={}
+        for index,element in enumerate(nums):
+            dictionary[element]=index
+        for  curr ,new in operations:
+            index=dictionary[curr]
+            nums[index]=new
+            del dictionary[curr]
+            dictionary[new]=index
+
+        return nums
+
