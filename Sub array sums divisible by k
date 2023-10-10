@@ -1,0 +1,22 @@
+ class Solution(object):
+    def subarraysDivByK(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        ans = 0
+        l = 0
+        dict ={0:1}
+
+        for num in nums:
+            l+=num
+            key=l%k
+
+            if key in dict:
+                ans+=dict[key]
+                dict[key]+=1
+            else:
+                dict[key] =1 
+        return ans            
+        
