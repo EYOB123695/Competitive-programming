@@ -1,0 +1,16 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        ans=0
+        sum=0
+        dict={0:1}
+        for n in nums:
+            sum+=n
+            res = sum - k
+            ans +=dict.get(res,0)
+            dict[sum]= 1 + dict.get(sum,0)
+        return ans
