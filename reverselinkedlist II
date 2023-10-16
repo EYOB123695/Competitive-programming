@@ -1,0 +1,21 @@
+class Solution(object):
+    def reverseBetween(self, head, left, right):
+        """
+        :type head: ListNode
+        :type left: int
+        :type right: int
+        :rtype: ListNode
+        """
+        dummy = ListNode(0,head)
+        lP, cur = dummy, head
+        for i in range(left-1):
+            lP, cur = cur, cur.next
+
+        prev = None 
+        for i in range(right-left+1):
+            tmpNext = cur.next
+            cur.next = prev 
+            prev, cur = cur, tmpNext
+        lP.next.next = cur 
+        lP.next = prev 
+        return dummy.next 
