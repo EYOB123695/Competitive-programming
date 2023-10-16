@@ -1,0 +1,13 @@
+class Solution(object):
+    def judgeSquareSum(self, c):
+        """
+        :type c: int
+        :rtype: bool
+        """
+        sq=int(sqrt(c))
+        k = set([a*a for a in range(sq+1)])
+
+        for a in k :
+            b = c-a
+            if b in k :return True 
+        return False          
