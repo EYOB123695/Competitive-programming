@@ -1,0 +1,16 @@
+class Solution(object):
+    def findSubsequences(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        ans= set()
+
+        def dfs(nums, idx, path):
+            if len(path) >= 2:
+                ans.add(tuple(path))
+            for i in range(idx, len(nums)):
+                if not path or nums[i] >= path[-1]:
+                    dfs(nums, i+1, path + [nums[i]])
+        dfs(nums, 0, [])
+        return list(ans)
