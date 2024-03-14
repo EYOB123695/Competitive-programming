@@ -7,7 +7,7 @@ class Solution:
         arr = [0] * len(s)
         for i in range(len(s)):
             arr[i] = ord(s[i]) - 97
-        print(arr) 
+    
         for i in range(len(shifts)):
             
                 if  shifts[i][2] == 0 :
@@ -33,7 +33,7 @@ class Solution:
             prefixsum[l] = prefixsum[l] % 26
             l+=1
             r+=1 
-        print(prefixsum)
+        
         for i in prefixsum:
 
             res.append( chr(i+97) )
