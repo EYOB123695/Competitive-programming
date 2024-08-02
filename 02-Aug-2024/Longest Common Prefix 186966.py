@@ -1,0 +1,54 @@
+# Problem: Longest Common Prefix - https://leetcode.com/problems/longest-common-prefix/
+
+class TrieNode:
+    def __init__(self):
+        self.is_end = False
+        self.children = {}
+class Solution:
+    def __init__(self):
+        self.root =TrieNode()
+    def add(self,word):
+            cur = self.root
+            
+            for i in range(len(word)):
+                if word[i] not in cur.children:
+                    cur.children[word[i]] = TrieNode()
+                
+                cur = cur.children[word[i]]
+            cur.is_end = True
+    def search(self,word):
+        cur = self.root
+        l  = 0
+        for i in range(len(word)):
+            if len(cur.children)!=1:
+                return l
+            l+=1
+            cur  = cur.children[word[i]]
+       
+        return l
+            
+
+        
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        ans =float("inf")
+        for i in strs:
+            self.add(i)
+        for  i in strs:
+            ans = min(ans,self.search(i))
+        return strs[0][:ans]
+
+                
+       
+        
+        
+        
+
+
+
+
+
+        
+        
+
+
+        
