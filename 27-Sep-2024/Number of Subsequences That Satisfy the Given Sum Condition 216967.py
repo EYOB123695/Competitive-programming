@@ -1,0 +1,21 @@
+# Problem: Number of Subsequences That Satisfy the Given Sum Condition - https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/
+
+class Solution:
+    def numSubseq(self, nums: List[int], target: int) -> int:
+        nums.sort()
+        res  = 0 
+        r = len(nums)-1
+        x = 10**9 + 7
+        for  idx,i in enumerate(nums):
+            while i + nums[r] > target and idx <= r:
+                r-=1 
+            if idx<= r:
+                res += (2 ** (r -idx)) 
+        return res % x
+
+
+
+
+
+
+        
