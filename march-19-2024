@@ -1,0 +1,17 @@
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        def flip(j):
+            nums[j] ^= 1 
+            nums[j+1] ^= 1 
+            nums[j+2] ^= 1 
+        answer = 0 
+        for i in range(len(nums) -2) : 
+            if nums[i] == 0 :
+                answer += 1 
+                flip(i)
+            else:
+                continue
+        if nums[-1 ] == 0 or nums[-2] == 0 :
+            return -1 
+        else :
+            return answer 
