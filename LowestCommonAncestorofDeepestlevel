@@ -1,0 +1,35 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def lcaDeepestLeaves(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        candidate = None 
+        maxdepth = -1 
+        def dfs(node,depth):
+            nonlocal candidate
+            nonlocal maxdepth
+            if not node :
+                return 0
+            if not node.left and  not node.right:
+                if depth  > maxdepth:
+                    candidate = node 
+                    maxdepth = depth
+                return depth
+            
+            left = dfs(node.left, depth + 1)
+            right = dfs(node.right , depth + 1)
+            if left  == right == maxdepth:
+                candidate = node 
+            return max(left,right) 
+        dfs(root,0)
+        return candidate
+
+            
+
+
+
+
+        
