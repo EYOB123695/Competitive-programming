@@ -1,0 +1,19 @@
+class Solution:
+    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+        mydict = { }
+        for i in range(len(mat)):
+            sol = 0 
+            for j in range(len(mat[0])):
+                if mat[i][j]== 1:
+                    sol += 1
+            mydict[i] = sol
+        ans = list(sorted(mydict.items(), key = lambda x:x[1]))
+        res= []
+        for j in range(k):
+            res.append(ans[j][0])
+        return res
+            
+        
+
+
+        
