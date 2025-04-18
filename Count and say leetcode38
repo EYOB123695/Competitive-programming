@@ -1,0 +1,33 @@
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        def mapper(start):
+            arr = []
+            if len(start) >= 1:
+                val = start[0]
+            count = 1
+           
+            for i in range(1,len(start)):
+                if start[i] == val:
+                    count += 1 
+                else :
+                    arr.append([val , count])
+                    count = 1
+                    val = start[i] 
+            arr.append([val,count])
+            return arr
+           
+        def checker(arr):
+            string= ""
+            for i,j in arr:
+                string += str(j)
+                string += str(i) 
+            return string
+        start = "1"
+        for i in range(n -1):
+
+            start = mapper(start)
+            start  = checker(start)
+            print(start)
+        return start
+
+
