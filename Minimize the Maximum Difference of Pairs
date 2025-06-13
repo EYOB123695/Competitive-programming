@@ -1,0 +1,40 @@
+class Solution:
+    def minimizeMax(self, nums: List[int], p: int) -> int:
+       left = 0
+       right  = 10 ** 9 
+       mid = 10 ** 9 
+       ans = 0
+       nums.sort()
+       def valid(mid):
+          i = 0
+          count = 0 
+          while i < len(nums) -1 :
+            if nums[i+1] - nums[i] <= mid :
+                i += 2
+                count +=1
+            else:
+                i+=1
+          return count  >= p
+        
+
+
+
+
+
+       while left < right:
+         mid = left + (right - left)//2 
+         if valid(mid):
+            
+            right = mid 
+         else:
+            left = mid + 1
+       return left
+         
+
+
+        
+
+
+
+
+        
