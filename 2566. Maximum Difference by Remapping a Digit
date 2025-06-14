@@ -1,0 +1,33 @@
+class Solution:
+    def minMaxDifference(self, num: int) -> int:
+        val = "9"
+        valthree = "0" 
+        for i in str(num):
+            if  i == "9":
+                continue
+            else:
+                val = i 
+                break 
+        max = list(str(num))
+       
+
+        for i in  range(len(max)):
+            if  max[i] == val:
+                max[i] = "9"
+        for i in str(num):
+            if  i == "0":
+                continue
+            else:
+                valthree = i 
+                break 
+        min = list(str(num))
+        for i in  range(len(min)):
+            if  min[i] == valthree:
+                min[i] = "0"
+        valone = int("".join(max))
+        valtwo = int("".join(min))
+       
+        return valone - valtwo
+        
+ 
+
