@@ -1,0 +1,17 @@
+class Solution:
+    def findLHS(self, nums: List[int]) -> int:
+        dictone = Counter(nums)
+        nums.sort()
+        val = 0
+        for i in range(len(nums)-1):
+            if nums[i+1] - nums[i] == 1 :
+                curr = dictone[nums[i+1]] + dictone[nums[i]] 
+                val = max(val,curr)
+        return val
+
+
+
+
+
+
+        
