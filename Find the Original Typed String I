@@ -1,0 +1,22 @@
+class Solution:
+    def possibleStringCount(self, word: str) -> int:
+        dictone =   Counter(word)
+        ans = 0 
+        stack = [word[0]]
+        curr = 0
+        for i in range(1 ,len(word)):
+            if stack[-1] == word[i]:
+                curr += 1 
+                # print(curr,stack,word[i])
+            else:
+                ans += curr 
+                curr = 0 
+            # print(curr,stack)
+            stack.append(word[i])
+        ans += curr
+        return ans + 1
+            
+
+
+
+        
