@@ -1,0 +1,17 @@
+
+class Solution:
+    def maximumLength(self, nums: List[int], k: int) -> int:
+         
+        ans = 0
+        mat = [[0] *(k) for i in range(k)]
+        for i in range(len(nums)):
+            curr = (nums[i] % k)
+            for prev in range(k):
+                mat[curr][prev]  = mat[prev][curr] +1 
+                ans= max(mat[curr][prev] , ans)
+        return ans
+
+
+
+
+        
