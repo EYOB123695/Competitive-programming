@@ -1,0 +1,19 @@
+class Solution:
+    def subarrayBitwiseORs(self, arr: List[int]) -> int:
+        
+        prev = set()
+         
+        ans = set()
+        for i in arr:
+            curr ={i}
+            for y in prev:
+               curr.add(y | i)
+            ans |= curr
+            prev =curr
+
+        return len(ans)
+            
+
+
+
+       
