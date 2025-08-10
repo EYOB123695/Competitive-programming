@@ -1,0 +1,21 @@
+class Solution:
+    def reorderedPowerOf2(self, n: int) -> bool:
+        if n  == 1 :
+            return True
+        dict= defaultdict(int)
+        m = str(n)
+        for k in m:
+            dict[k] += 1 
+        z =  2 
+        while z  < 10 ** 9 :
+            dicttwo = defaultdict(int)
+            for i in str(z): 
+                dicttwo[i] += 1 
+            if dicttwo == dict:
+                return True 
+            z *= 2
+        return False
+
+
+
+        
