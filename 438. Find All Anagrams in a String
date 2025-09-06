@@ -1,0 +1,27 @@
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        k = len(p)
+        arr = s[:k]
+        dictone = Counter(arr)
+        dicttwo = Counter(p)
+        j = 0 
+        ans = []
+        i = k 
+        while i < len(s) :
+            if dictone == dicttwo:
+                ans.append(j)
+            
+
+            dictone[s[i]] += 1 
+            dictone[s[j]] -= 1 
+            i+=1
+            j+=1
+        if dictone == dicttwo:
+            ans.append(j)
+           
+            
+        return ans 
+
+
+
+        
