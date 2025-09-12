@@ -1,0 +1,10 @@
+class Solution:
+    def doesAliceWin(self, s: str) -> bool:
+
+        x = ("a","e","i","o","u")
+        for i in range(len(s)):
+            if s[i] in x:
+                return True 
+        return False
+
+
