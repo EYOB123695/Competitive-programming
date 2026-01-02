@@ -1,0 +1,10 @@
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        dict = Counter(nums)
+        v = len(nums) //2 
+        for k,val in dict.items(): 
+            if v == val : 
+                return k
+        
+
+        
