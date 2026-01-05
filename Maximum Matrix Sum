@@ -1,0 +1,23 @@
+class Solution:
+    def maxMatrixSum(self, matrix: List[List[int]]) -> int:
+        count = 0 
+        small = float("inf")
+        sum = 0
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j] < 0 :
+                    count +=1 
+                
+                    small = min (-1 * matrix[i][j], small)
+                else:
+                    small = min (matrix[i][j], small)
+                sum += abs(matrix[i][j])
+        if count % 2 != 0 :
+             
+            sum -= (2 * small)
+           
+        return sum
+        
+
+
+        
