@@ -1,0 +1,42 @@
+class Solution:
+    def minFlips(self, s: str) -> int:
+        n = len(s)
+        s = s + s
+        altone = ""
+        alttwo = ""
+        
+        for i in range(len(s)):
+            if i %2 != 0 :
+                altone+= "1" 
+                alttwo += "0"
+            else:
+                altone += "0"
+                alttwo += "1"
+        ans = len(s)
+        l = 0
+        diffone = 0 
+        difftwo = 0
+        for r in range(len(s)):
+            if s[r] != altone[r] :
+                diffone += 1 
+            if s[r] != alttwo[r]:
+                difftwo += 1 
+            if (r- l +1) > n:
+                if s[l] != altone[l]:
+                    diffone -=1 
+                if s[l] != alttwo[l]:
+                    difftwo -= 1 
+                l += 1 
+            if (r-l+1) == n :
+                ans = min(ans,diffone,difftwo)
+        return ans 
+
+
+
+
+        
+
+
+       
+
+        
