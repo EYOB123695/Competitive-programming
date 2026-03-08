@@ -1,0 +1,23 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        productarray = [1] * len(nums)
+        suffix  = [1] * len(nums)
+        ans  = []
+        suffix[len(nums)-1]  = nums[-1]
+        for i in range(len(nums)):
+            productarray[i] = productarray[i-1] * nums[i]
+        for j in range(len(suffix)-2,-1,-1):
+            suffix[j] =suffix[j+1] * nums[j]
+      
+        for j in range(len(productarray)):
+            if j == 0 :
+                ans.append( suffix[j+1])
+            elif j == len(productarray) - 1:
+                ans.append(productarray[j-1])
+            else:
+                ans.append(productarray[j-1] *suffix[j+1])
+        return ans 
+
+
+
+        
