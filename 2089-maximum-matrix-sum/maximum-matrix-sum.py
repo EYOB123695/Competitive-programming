@@ -16,7 +16,7 @@ class Solution:
                     
                         
 
-        print(val)
+       
         if count % 2 == 0 or flag :
             return sum 
         else :
