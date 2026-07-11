@@ -3,21 +3,21 @@ class Solution:
         sum = 0 
         count = 0
         val = float("inf")
-        flag = False
+        
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
-                sum += abs(matrix[i][j])
+                curr = abs(matrix[i][j])
+                sum += curr
                 if matrix[i][j] < 0 :
                     count  += 1 
                 
-                elif matrix[i][j] == 0 :
-                    flag = True
-                val = min(val,abs(matrix[i][j]))
+              
+                val = min(val,curr)
                     
                         
 
        
-        if count % 2 == 0 or flag :
+        if count % 2 == 0  :
             return sum 
         else :
             return sum + (2 * ( - val)) 
