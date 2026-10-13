@@ -1,28 +1,21 @@
 class Solution:
-    def maxMatrixSum(self, matrix: List[List[int]]) -> int:
-        ans  = 0 
-        count = 0
-        val = float("inf")
+    def maxMatrixSum(self, matrix: list[list[int]]) -> int:
+        total_sum = 0
+        min_abs = float('inf')
+        neg_count = 0
         
-        for i in range(len(matrix)):
-            for j in range(len(matrix[0])):
-                curr = abs(matrix[i][j])
-                ans += curr
-                if matrix[i][j] < 0 :
-                    count  += 1 
-                
-              
-                val = min(val,curr)
+        for row in matrix:
+            for val in row:
+                if val < 0:
+                    neg_count += 1
+                abs_val = abs(val)
+                total_sum += abs_val
+                if abs_val < min_abs:
+                    min_abs = abs_val
                     
-                        
-
-       
-        if count % 2 == 0  :
-            return  ans
-        else :
-            return ans + (2 * ( - val)) 
-
-        
-
-
+        # If there is an odd count of negatives, one smallest element must stay negative
+        if neg_count % 2 != 0:
+            total_sum -= 2 * min_abs
+            
+        return total_sum
         
